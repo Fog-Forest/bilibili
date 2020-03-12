@@ -1,12 +1,12 @@
 <?php
 
 /**
- Template Name: 追番页面
+ Template Name: 追番模版
  */
  
 get_header();
 ?>
-<link href="https://cdn.jsdelivr.net/gh/Fog-Forest/cdn@1.9.6/Sakura/css/page-anime.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/Fog-Forest/bilibili@1.0/Old/page-anime.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css" rel="stylesheet">
 <div id="primary" class="content-area">
 <main id="main" class="site-main" role="main">

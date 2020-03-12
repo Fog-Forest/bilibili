@@ -12,12 +12,16 @@
 
 
 ![1](https://i.loli.net/2020/03/10/9Efl7u5oa3n6N1i.png)
+
+
 **箭头处即你的UID**
 
 打开F12的**Network**并刷新，找到与你UID相同的文件并打开
 ![2](https://i.loli.net/2020/03/10/WYkMvLwJbcOjla5.png)
 
 找到cookie一栏，**完全复制**
+
+
 
 此时回到 **page-anime.php** ，发现你修改的uid后方有预留的格子，里面填入你的cookie保存，并放入你的主题根目录即可
 
@@ -30,6 +34,7 @@
 
 
 在WP后台新建页面时选择模板，创建页面，即可显示成功。
+
 
 ### 效果
 ![1](https://i.loli.net/2020/03/10/hcei4TDbRp1nCma.png)

@@ -6,7 +6,8 @@
 
 get_header(); ?>
 
-<link href="https://cdn.jsdelivr.net/gh/Fog-Forest/bilibili@1.1/page-anime1.min.css" rel="stylesheet">
+<meta name="referrer" content="never">
+<link href="https://cdn.jsdelivr.net/gh/Fog-Forest/bilibili@1.2/page-anime.min.css" rel="stylesheet">
 <div id="container" class="container" >
     <div class="page-header">
         <h1>我的追番

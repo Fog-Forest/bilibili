@@ -1,6 +1,6 @@
 # WordPress博客 B站追番页面
 
-本项目为 [bilibili](https://github.com/TaylorLottner/bilibili) 项目的备份以及补充，如有侵权请告知！
+### 本项目为 [bilibili](https://github.com/TaylorLottner/bilibili) 项目的备份以及个人补充，如有侵权请告知！
 
 ### 开工
 1. 下载上面我整理的项目文件并解压，将 `anime_bili.php` 文件扔到到站点根目录

@@ -31,7 +31,7 @@
 ```html
 <meta name="referrer" content="never">
 ```
-然后把 `anime_bili.php` 文件的第76行改为 `array_push($this->image_url, str_replace('http', 'https', $data['cover']));` 就可以了
+然后把 `bilibiliAnime.php` 文件的第76行改为 `array_push($this->image_url, str_replace('http', 'https', $data['cover']));` 就可以了
 ![4](https://ae01.alicdn.com/kf/H9dfccaff67e446998351f95ea3c9e2f5J.jpg)
 
 

@@ -17,6 +17,7 @@
 4. 按F12进入浏览器调试工具，打开 `Network` 并刷新页面，找到与你UID相同的文件并打开，这里用谷歌浏览器演示，如下图
 ![3](https://ae01.alicdn.com/kf/Hd2adbe5fac084d51b6f3f9a3f02fe54cP.jpg)
 找到 `cookie` 一栏，**完全复制**，每个人的Cookie都不一样，建议用浏览器的 **无痕模式** 操作
+
 举例：`_uuid=4A7B58DE-6C3C-BF5E-B8C6-5D48489749688infoc; buvid3=53283E1E-E010-473E-B1AC-AC56B35C8D78155813infoc; sid=ifh97oa5; DedeUserID=8142789; DedeUserID__ckMd5=02832b48fef34f47; SESSDATA=f03c9edc%2C1599568237%2C2b113*31; bili_jct=761c41464fa5ccd3f681f6b8c07976f0; LIVE_BUVID=AUTO5815840214807981; CURRENT_FNVAL=16; PVID=1`
 
 

@@ -13,7 +13,7 @@ get_header(); ?>
     <div class="page-header">
         <h1>我的追番
          <?php
-            require_once ("bilibiliAnime");
+            require_once ("bilibiliAnime.php");
             $bili=new bilibiliAnime('你的B站UID','你的B站Cookie不填没观看记录');
             echo "<small>当前已追".$bili->sum."部，继续加油！</small></h1></div><div class=\"row\">";
             function precentage($str1,$str2)

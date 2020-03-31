@@ -1,7 +1,8 @@
 <?php
 
 /**
- Template Name: 追番页面
+ Template Name: B站追番页面
+ Template author: 🎉梨花镇的阿肾🎉，老蘑菇二次修改样式
  */
 
 get_header(); ?>
@@ -12,8 +13,8 @@ get_header(); ?>
     <div class="page-header">
         <h1>我的追番
          <?php
-            require_once ("anime_bili.php");
-            $bili=new bilibiliAnime('8142789','');
+            require_once ("bilibiliAnime");
+            $bili=new bilibiliAnime('你的B站UID','你的B站Cookie不填没观看记录');
             echo "<small>当前已追".$bili->sum."部，继续加油！</small></h1></div><div class=\"row\">";
             function precentage($str1,$str2)
             {

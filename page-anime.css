@@ -853,3 +853,12 @@
 	text-decoration:none;
 	color:#000
 }
+/* 收缩展示 */
+.showall {
+	font-size: 20px;
+	color: orange;
+	padding: 20px 0 30px 0;
+}
+.showall:hover {
+	color: #e67474;
+}

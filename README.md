@@ -1,9 +1,11 @@
-# WordPress博客 B站追番页面
+# WordPress博客 B站追番/追剧页面
 
 ### 本项目为 [bilibili](https://github.com/TaylorLottner/bilibili) 项目的二次修改，已获原作者授权！
 
+### 新增B站追剧模版，使用方法和追番相同
+
 ### 使用说明
-1. 下载上面我的修改版并解压，将 `bilibiliAnime.php` 文件扔到到站点根目录
+1. 下载上面我的修改版并解压，将 `bilibili` 整个目录扔到到你的站点**根目录**
 
 2. 将 `page-anime.php` 文件扔到 **主题根目录** ，修改里面的这串数字，换成各位同学的B站UID
 !{1}(https://ae01.alicdn.com/kf/Hdf0b238d228a4a40ae75733cede7a7af8.jpg)

@@ -14,7 +14,7 @@ get_header(); ?>
         <h1>我的追番
          <?php
             require_once ("json/bilibiliAnime.php");
-            $bili=new bilibiliAnime('8142789','_uuid=77A92E24-A7CA-CF50-AEF2-300BA309329C55906infoc; buvid3=42CB06B5-CF56-4542-BDB2-0102A90CB8DE155838infoc; sid=iattb10z; DedeUserID=8142789; DedeUserID__ckMd5=02832b48fef34f47; SESSDATA=b6840791%2C1600852159%2C53116*31; bili_jct=d34906e7dfb0d16c1e0fe89a52a956b5');
+            $bili=new bilibiliAnime('你的B站UID','你的B站Cookie');
             echo "<small>当前已追".$bili->sum."部，继续加油！</small></h1></div><div class=\"row\">";
             function precentage($str1,$str2)
             {

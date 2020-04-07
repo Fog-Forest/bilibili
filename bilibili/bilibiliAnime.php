@@ -8,35 +8,34 @@ class bilibiliAnime
     public $evaluate=array();//介绍
     public $season_id=array();//ID号，用于番剧跳转
     public $sum;//番剧数目
-//    这个是处理我观看记录的函数
+//观看记录的处理函数
     private function process($content)
     {
-        $start=stripos($content,"第");
-        if($start)
+        if (stripos($content,"第"))
         {
+			$start=stripos($content,"第");
             $end=stripos($content,"话");
             return substr($content,$start+3,$end-$start-3);
         }
-        else
+		elseif (stripos($content,"OAD"))
         {
-            $start=stripos($content,"到");
-            if($start)
-            {
-                return substr($content,$start+3);
-            }
-            else
-            {
-                $start=stripos($content,"完");
-                if($start)
-                {
-                    return substr($content,$start+3);
-                }
-                else
-                {
-                    return "没有记录!";
-                }
-            }
+			return "已经追完了咯~";
+		}
+		else
+		{
+			return "貌似还没有看呢~";
+		}
+    }
+    private function total($content)
+    {
+        if ($content==null)
+        {
+			return "还没开始更新呢~";
         }
+		else
+		{
+			return $content;
+		}
     }
     private function getpage($uid)
     {
@@ -74,7 +73,7 @@ class bilibiliAnime
             foreach ($info['data']['list'] as $data) {
                 array_push($this->title, $data['title']);
                 array_push($this->image_url, str_replace('http://', '//', $data['cover']));
-                array_push($this->total, $data['new_ep']['title']);
+                array_push($this->total, $this->total($data['new_ep']['title']));
                 array_push($this->progress,$this->process($data['progress']));
                 array_push($this->evaluate, $data['evaluate']);
                 array_push($this->season_id, $data['season_id']);

@@ -8,7 +8,7 @@ class bilibiliAnime
     public $evaluate=array();//介绍
     public $season_id=array();//ID号，用于番剧跳转
     public $sum;//番剧数目
-//观看记录的处理函数
+//处理观看记录的函数
     private function process($content)
     {
         if (stripos($content,"第"))
@@ -21,9 +21,13 @@ class bilibiliAnime
         {
 			return "已经追完了咯~";
 		}
-		else
+		elseif ($content==null)
 		{
 			return "貌似还没有看呢~";
+		}
+		else
+		{
+			return $content;
 		}
     }
     private function total($content)

@@ -1170,6 +1170,7 @@
 
 /* 收缩展示 */
 .showall {
+	width: 100%;
 	color: #ffaa00;
 	font-size: 20px;
 	text-align: center;

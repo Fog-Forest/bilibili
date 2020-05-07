@@ -8,7 +8,7 @@
 get_header(); ?>
 
 <meta name="referrer" content="never">
-<link href="https://cdn.jsdelivr.net/gh/Fog-Forest/bilibili@1.7/page-movie.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/Fog-Forest/bilibili@1.7.1/page-movie.min.css" rel="stylesheet">
 <div id="container" class="container" >
     <div class="page-header">
         <h1>我的追剧
@@ -29,7 +29,6 @@ get_header(); ?>
 			}
         ?>
     </div>
-    <center><div class="showall">. Show All .</div></center>
 </div>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.min.js"></script>
 <script type="text/javascript">  // 收缩展示

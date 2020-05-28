@@ -1,6 +1,7 @@
 # WordPress博客 B站追番/追剧页面模板
 
 ### 本项目为 [bilibili](https://github.com/TaylorLottner) 的二开（原项目已被作者删除，备份见本项目 V1.2），已获原作者授权！
+注意：理论适用所有 WordPress 主题，但我只做了 Sakura 主题的 CSS 适配，其他WP主题请自行修改 CSS 吧~
 
 ### 使用说明
 1. 下载本项目，将 `json` 整个目录扔到你的站点**根目录**，将 `page-anime.php` 和 `page-movie.php` 文件扔到你的**WP主题根目录**
@@ -31,8 +32,8 @@
 ```
 
 ### 效果预览
-#### 原版
-![4](https://cdn.jsdelivr.net/gh/Fog-Forest/Picture-Bed/blog/H6a94bdf90ddb40a9b417d3405e73393dg.jpg)
+#### 二开版
+![](https://cdn.jsdelivr.net/gh/Fog-Forest/Picture-Bed/blog/H8b85865e4ca0489cb0542c2358526f05i.jpg)
 
-#### 我的修改版
-![5](https://cdn.jsdelivr.net/gh/Fog-Forest/Picture-Bed/blog/H8b85865e4ca0489cb0542c2358526f05i.jpg)
+#### 原版
+![](https://cdn.jsdelivr.net/gh/Fog-Forest/Picture-Bed/blog/H6a94bdf90ddb40a9b417d3405e73393dg.jpg)

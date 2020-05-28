@@ -2,7 +2,7 @@
 
 /**
  Template Name: B站追剧页面
- Template author: 老蘑菇，参考 🎉梨花镇的阿肾🎉 追番页
+ Template author: 老蘑菇
  */
 
 get_header(); ?>
@@ -10,15 +10,20 @@ get_header(); ?>
 <meta name="referrer" content="never">
 <link href="https://cdn.jsdelivr.net/gh/Fog-Forest/bilibili@1.7.2/col.min.css" rel="stylesheet">
 <style>
-    /* B站追剧 */
+    /* B站追番 */
+    .row {
+        margin: 0 10px;
+    }
+
     .bangumi-item {
+        margin: 20px 0;
         padding-top: 0;
         padding-bottom: 0;
         border: none
     }
 
     .bangumi-link {
-        padding: 12px;
+        padding: 0;
         border: none
     }
 
@@ -29,26 +34,10 @@ get_header(); ?>
 
     .bangumi-banner img {
         display: block;
-        margin: 20px auto;
-        border-radius: 3px;
         width: 100%;
-        height: 220px
-    }
-
-    @media (max-width:1000px) {
-
-        /*平板适配*/
-        .bangumi-banner img {
-            height: 265px
-        }
-    }
-
-    @media (max-width:500px) {
-
-        /*手机适配*/
-        .bangumi-banner img {
-            height: auto
-        }
+        height: 220px;
+        margin: 15px auto;
+        border-radius: 3px
     }
 
     .bangumi-des {
@@ -74,7 +63,12 @@ get_header(); ?>
         opacity: 1
     }
 
+    .bangumi-content {
+        border-bottom: solid 0.5px #bbb;
+    }
+
     .bangumi-title {
+        margin: 5px 0;
         border: none !important;
         text-align: center;
         overflow: hidden;
@@ -83,17 +77,8 @@ get_header(); ?>
         font-family: 'Ubuntu', sans-serif
     }
 
-    .bangumi-progress {
-        border-radius: 4px;
-        height: 8px;
-        background: gray
-    }
-
     .page-header {
-        text-align: center
-    }
-
-    .page-header {
+        text-align: center;
         border-bottom: 1px solid #a773c3
     }
 
@@ -112,50 +97,94 @@ get_header(); ?>
         color: #000
     }
 
-    /* 收缩展示 */
-    .showall {
+    @media (max-width:1000px) {
+
+        /*平板适配*/
+        .bangumi-banner img {
+            height: 265px
+        }
+    }
+
+    @media (max-width:500px) {
+
+        /*手机适配*/
+        .bangumi-banner img {
+            height: auto
+        }
+    }
+
+    /* AJAX请求等待图 */
+    img.loading_dsasd {
+        width: 200px;
+        margin: 50px 0 50px 50%;
+        transform: translateX(-50%);
+    }
+
+    /* 分页模块 */
+    #next {
+        margin: 15px 0;
         width: 100%;
         color: #ffaa00;
         font-size: 20px;
         text-align: center;
-        padding: 20px 0;
-        transition: all .6s;
+        transition: all .6s
     }
 
-    .showall:hover {
-        color: #e67474;
+    #next:hover {
+        color: #e67474
     }
 </style>
+<?php
+$sum = json_decode(file_get_contents(home_url() . "/json/GetMovieData.php?limit=1&page=0"), true);
+echo "<div class=\"page-header\"><h1>我的追剧 <small>当前已追" . $sum['total'] . "部，继续加油！</small></h1></div><div id=\"bilibiliMovie\" class=\"row\"></div><div id=\"next\">. NEXT .</div>"
+?>
 
-<div class="page-header">
-    <h1>我的追剧
-        <?php
-        require_once("json/bilibiliAcconut.php");
-        require_once("json/bilibiliMovie.php");
-        $bili = new bilibiliMovie($UID, $Cookie);
-        echo "<small>当前已追" . $bili->sum . "部，继续加油！</small></h1></div><div class=\"row\">";
-        for ($i = 0; $i < $bili->sum; $i++) {
-            if ($i > $show_num) {
-                $more = "more";
-            }
-            echo "<div class=\"bangumi-item col-md-4 col-lg-3 " . $more . "\"><a class=\"no-line bangumi-link\" href=\"https://www.bilibili.com/bangumi/play/ss" . $bili->season_id[$i] . "/ \" target=\"_blank\"><div class=\"bangumi-banner\"><img src=\"" . $bili->image_url[$i] . "\"><div class=\"bangumi-des\"><p>" . $bili->evaluate[$i] . "</p></div></div><div class=\"bangumi-content\"><h3 class=\"bangumi-title\">" . $bili->title[$i] . "</h3><div class=\"bangumi-progress\" style=\"width:100%\"></div><div class=\"bangumi-progress-num\">" . $bili->progress[$i] . "</div></div></a></div>";
-        }
-        if ($bili->sum > $show_num) {
-            echo "<div class=\"showall\">. Show All .</div>";
-        }
-        ?>
-</div>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
 <script type="text/javascript">
-    // 收缩展示
     $(document).ready(function() {
-        $(".more").hide();
-        $(".showall").click(function() {
-            $(".more").fadeIn();
-            $(".showall").text("真的已经到头了哦~");
+        var pagenum = 0;
+        var limit = 12; //单页展示数
+        GetMovieData(limit, 0);
+        $("div#next").click(function() {
+            GetMovieData(limit, ++pagenum);
+            console.log("第 " + pagenum + " 页");
         });
     });
+
+    function GetMovieData(limit, page) {
+        $.ajax({
+            type: "get",
+            url: "/json/GetMovieData.php",
+            data: {
+                "limit": limit, // 每页个数
+                "page": page // 页号,第一页 page = 0
+            },
+            dataType: "json",
+            beforeSend: function() {
+                $("#bilibiliMovie").append("<img class=\"loading_dsasd\" src=\"https://cdn.jsdelivr.net/gh/Fog-Forest/Steam-page@1.2/json/loading.svg\">");
+            },
+            complete: function() {
+                $(".loading_dsasd").remove();
+            },
+            success: function(data) {
+                var i;
+                if (data.total_page == page && page == 0) {
+                    $("div#next").hide();
+                } else if (data.total_page == page) { // 判断是否最后一页
+                    $("div#next").text("真的没有更多了哦~");
+                }
+                for (i = 0; i < data.data.length; i++) {
+                    $("#bilibiliMovie").append("<div class=\"bangumi-item col-md-4 col-lg-3 col-sm-6\"><a class=\"no-line bangumi-link\" href=\"https://www.bilibili.com/bangumi/play/ss" + data.data[i].id + "/ \" target=\"_blank\"><div class=\"bangumi-banner\"><img class=\"lazy\" src=\"https://cdn.jsdelivr.net/gh/Fog-Forest/Steam-page@1.2/json/loading.svg\" data-src=\"" + data.data[i].image_url + "\"><div class=\"bangumi-des\"><p>" + data.data[i].evaluate + "</p></div></div><div class=\"bangumi-content\"><h3 class=\"bangumi-title\">" + data.data[i].title + "</h3></div></a></div>");
+                    // console.log(data); // 查看AJAX获取的数据
+                }
+                $("img.lazy").lazyload(); // 图片懒加载
+            },
+            error: function(data) {
+                alert(data.result);
+            }
+        });
+    }
 </script>
 
 <?php

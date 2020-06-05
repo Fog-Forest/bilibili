@@ -30,7 +30,7 @@ class bilibiliAnime
         } elseif ($content == null) {
             return "貌似还没有看呢~";
         } else {
-            return $content;
+            return preg_replace('/(\d:)?\d{2}:\d{2}/', '', $content);
         }
     }
     private function fan_number($content)

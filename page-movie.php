@@ -2,7 +2,7 @@
 
 /**
  Template Name: B站追剧页面
- Template author: 老蘑菇
+ Template author: 蘑菇君
  */
 
 get_header(); ?>
@@ -139,7 +139,9 @@ $sum = json_decode(file_get_contents(home_url() . "/json/GetMovieData.php?limit=
 echo "<div class=\"page-header\"><h1>我的追剧 <small>当前已追" . $sum['total'] . "部，继续加油！</small></h1></div><div id=\"bilibiliMovie\" class=\"row\"></div><div id=\"next\">. NEXT .</div>"
 ?>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    window.jQuery || document.write('<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"><\/script>')
+</script>
 <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {

@@ -8,7 +8,7 @@
 get_header(); ?>
 
 <meta name="referrer" content="never">
-<link href="https://cdn.jsdelivr.net/gh/Fog-Forest/bilibili@1.7.2/col.min.css" rel="stylesheet">
+<link href="/json/css/col.min.css" rel="stylesheet">
 <style>
     /* B站追番 */
     .row {
@@ -174,7 +174,7 @@ echo "<div class=\"page-header\"><h1>我的追番 <small>当前已追" . $sum['t
             },
             dataType: "json",
             beforeSend: function() {
-                $("#bilibiliAnime").append("<img class=\"loading_dsasd\" src=\"https://cdn.jsdelivr.net/gh/Fog-Forest/Steam-page@1.2/json/loading.svg\">");
+                $("#bilibiliAnime").append("<img class=\"loading_dsasd\" src=\"/json/images/loading.svg\">");
             },
             complete: function() {
                 $(".loading_dsasd").remove();

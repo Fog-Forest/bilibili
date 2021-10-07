@@ -4,21 +4,21 @@
 注意：理论适用所有主题，但我只做了 Sakura 主题的 CSS 适配，其他主题请自行适配吧~
 
 ### 使用说明
-1. 下载本项目，将 `json` 整个目录扔到你的站点**根目录**，将 `page-anime.php` 和 `page-movie.php` 文件扔到你的**WP主题根目录**
+1. 下载本项目，将 `json` 整个目录扔到你的站点根路径，将 `page-anime.php` 和 `page-movie.php` 文件放到你的主题根路径。
 
-2. 按照注释，修改 `json` 里的 `bilibiliAcconut.php` 文件，填入你的信息（参考下方获取你的信息）
-![](https://view.amogu.cn/images/2020/08/26/20200528153655.jpg)
+2. 按照注释，修改 `json` 里的 `bilibiliAcconut.php` 文件，填入你的信息（参考下方获取你的信息）。
+!{}(https://view.amogu.cn/images/2020/08/26/20200528153655.jpg)
 
 3. 最后在 WP后台 新建页面时选择相应的模板，创建页面即可。
 
 ### 获取信息
-#### 1. 获取B站UID 
-打开[](https://www.bilibili.com/)，登入后进入个人空间，红框处为你的 UID【不要忘记把番剧设置成公开哦~】
+#### 1. 获取B站UID
+打开[](https://www.bilibili.com/)，登入后进入个人空间，红框处为你的 UID，不要忘记把番剧设置成公开哦~
 
 ![](https://view.amogu.cn/images/2020/08/26/20200528154041.jpg)
 
 #### 2. 获取Cookie
-登入后进入个人空间，按 **F12** 进入浏览器调试工具，打开 `Network` 再次刷新页面，找到与你 UID 相同的文件并打开，找到 `cookie` 一栏，**完全复制**，每个人的 Cookie 都不一样，建议用浏览器的 **无痕模式** 操作，这里用谷歌浏览器演示，如下图：
+登入后进入个人空间，按 **F12** 进入浏览器调试工具，打开 `Network` 再次刷新页面，找到与你 UID 相同的链接并打开，找到 `cookie` 一栏，**为了省事就完全复制**，每个人的 Cookie 都不一样，建议用浏览器的 **无痕模式** 操作，这里用谷歌浏览器演示，如下图：
 
 ![](https://view.amogu.cn/images/2020/08/26/20200528154355.png)
 
@@ -31,6 +31,6 @@
 <meta name="referrer" content="never">
 ```
 
-### 效果预览
+### 预览
 
 ![](https://view.amogu.cn/images/2020/08/26/H8b85865e4ca0489cb0542c2358526f05i.jpg)

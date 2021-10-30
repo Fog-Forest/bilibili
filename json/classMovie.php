@@ -6,6 +6,11 @@ class bilibiliMovie
     public $image_url = array();  // 图链
     public $evaluate = array();  // 简介
     public $season_id = array();  // ID号
+    public $type =  array();  // 类型
+    public $finish =  array();  // 更新状态
+    public $follow_status =  array();  // 追剧状态
+    public $can_watch =  array();  // 观看状态
+
 
     // 获取追剧总数
     private function getpage($uid)
@@ -26,6 +31,11 @@ class bilibiliMovie
                 array_push($this->image_url, str_replace('http://', '//', $data['cover']));  // 协议跟随
                 array_push($this->evaluate, $data['evaluate']);
                 array_push($this->season_id, $data['season_id']);
+                array_push($this->finish, $data['is_finish']);
+                array_push($this->type, $data['season_type_name']);
+                array_push($this->follow_status , $data['follow_status']);
+                array_push($this->can_watch, $data['can_watch']);
+
             }
         }
     }
